@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#1c54d6" />
+<link rel="icon" type="image/jpeg" href="assets/img/images.jpg" />
+<title>The 60-Second Mobility Test — Find Your Weak Link | Elastaboy</title>
+<meta name="description" content="Take the free 60-second mobility test. Get your mobility age, a score for every joint, and the exact 10-minute fix for your weakest link." />
+
+<!-- ============================================================
+     EDIT YOUR OFFER in the CONFIG block near the bottom of this
+     file (price, checkout link, guarantee, launch deadline, etc.)
+     The eBook title + copy auto-change to match the test result —
+     see the OFFER block to tweak that wording.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ============================ TOKENS ============================ */
+:root{
+  /* blues */
+  --blue:#1f6bff;
+  --blue-600:#1559e6;
+  --blue-700:#1147bd;
+  --coral:#ef9c84;
+  --coral-600:#cb8570;
+  --sky:#52a0ff;
+  --sky-2:#8cc2ff;
+  --sky-soft:#eaf2ff;
+  --sky-tint:#f4f8ff;
+  /* navy / ink (the "black") */
+  --navy:#091633;
+  --navy-2:#0d2150;
+  /* vibrant blue "bands" (replaces the old deep-navy sections) */
+  --band:linear-gradient(160deg,#2f72f2 0%,#1c54d6 56%,#1645b4 100%);
+  --band-glow:radial-gradient(1000px 560px at 80% -14%, rgba(125,184,255,.5) 0%, transparent 55%);
+  --banner:linear-gradient(90deg,#1746bd 0%,#2059d6 48%,#1746bd 100%);
+  --ink:#0b1526;
+  --slate:#51607a;
+  --slate-2:#7c8aa3;
+  /* neutrals */
+  --white:#ffffff;
+  --paper:#f4f7fe;
+  --line:#e4ebf7;
+  --line-2:#d6e0f2;
+  /* strategic red (urgency ONLY) */
+  --red:#ff2d46;
+  --red-ink:#e11631;
+  --red-soft:#fff0f1;
+
+  --display:'Poppins',sans-serif;
+  --body:'Inter',sans-serif;
+
+  --maxw:1140px;
+  --r:14px;
+  --r-sm:10px;
+  --r-xs:7px;
+  --ease:cubic-bezier(.2,.6,.3,1);
+
+  --sh-sm:0 2px 10px -3px rgba(11,30,72,.10);
+  --sh:0 18px 44px -20px rgba(11,30,72,.26);
+  --sh-lg:0 34px 80px -30px rgba(11,30,72,.34);
+  --sh-blue:0 14px 30px -10px rgba(31,107,255,.50);
+  --sh-coral:0 14px 30px -10px rgba(239,156,132,.50);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--white);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+::selection{background:var(--blue);color:#fff}
+.wrap{position:relative;z-index:1;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ============================ TYPE ============================ */
+.eyebrow{font-family:var(--display);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:13px;color:var(--blue);display:inline-flex;align-items:center;gap:8px}
+.eyebrow.soft{color:var(--slate-2)}
+.eyebrow svg{width:16px;height:16px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:1.02;letter-spacing:-.018em}
+h1{font-size:clamp(38px,5.6vw,68px)}
+h2{font-size:clamp(30px,4.2vw,50px)}
+h3{font-size:clamp(23px,2.8vw,32px)}
+.blue{color:var(--blue)}
+p.lead{font-size:clamp(17px,1.9vw,20px);color:var(--slate);line-height:1.55}
+.strike{color:var(--slate-2);text-decoration:line-through;text-decoration-thickness:2px}
+
+/* ============================ STICKY TOPBARS ============================ */
+.topbars{position:sticky;top:0;z-index:80}
+.promo{background:var(--banner);color:#fff;border-bottom:1px solid rgba(255,255,255,.14)}
+.promo-in{display:flex;align-items:center;justify-content:center;gap:13px;min-height:56px;padding:8px 0;font-size:14.5px;flex-wrap:wrap}
+.promo-flag{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;background:var(--red);color:#fff;padding:6px 11px;border-radius:var(--r-xs);box-shadow:0 4px 14px -4px rgba(255,45,70,.6)}
+.promo-flag .pdot{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 1.4s infinite}
+.promo-msg{color:#dbe8ff;font-weight:600}
+.promo-then{color:#bcd3ff;font-weight:600}
+.promo-then b{color:#fff;font-weight:800}
+.promo-clock{display:inline-flex;gap:13px;font-family:'Inter',sans-serif;font-weight:900;font-variant-numeric:tabular-nums}
+.promo-clock span{display:inline-flex;align-items:baseline;justify-content:center;gap:2px;color:#ffd23f;font-size:32px;font-weight:900;letter-spacing:-.02em;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.promo-clock span b{color:#fff;font-weight:700;font-size:12px;text-transform:lowercase;margin-left:1px;opacity:.85}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+header{background:rgba(255,255,255,.92);backdrop-filter:saturate(150%) blur(8px);-webkit-backdrop-filter:saturate(150%) blur(8px);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+header.scrolled{border-bottom-color:var(--line);box-shadow:var(--sh-sm)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;letter-spacing:-.01em;font-size:19px;color:var(--ink)}
+.brand .mark{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,var(--blue),var(--blue-700));color:#fff;box-shadow:var(--sh-blue);overflow:hidden}
+.brand .mark img{width:100%;height:100%;object-fit:cover}
+.brand .wordmark{height:28px;width:auto}
+.nav-meta{display:flex;align-items:center;font-size:18px;color:var(--ink);font-family:var(--display);font-weight:800}
+.nav-cta{font-family:var(--display);font-weight:700;font-size:14px;padding:11px 20px;border-radius:var(--r-sm);background:var(--coral);color:#fff;box-shadow:var(--sh-coral);transition:transform .14s var(--ease),background .18s}
+.nav-cta:hover{background:var(--coral-600);transform:translateY(-1px)}
+
+/* ============================ DARK BANDS ============================ */
+.band-dark{background:var(--band-glow),var(--band);color:#fff}
+.band-dark h1,.band-dark h2,.band-dark h3{color:#fff}
+.band-dark p.lead{color:#dbe8ff}
+.band-dark .eyebrow{color:#d2e4ff}
+.band-dark .eyebrow svg{color:#cfe2ff}
+/* primary CTA sitting directly on a blue band: invert to white so it pops
+   (scoped to #final so the blue test-card buttons are unaffected) */
+#final .btn-primary{background:var(--coral);color:#fff;box-shadow:var(--sh-coral)}
+#final .btn-primary:hover{background:var(--coral-600);color:#fff}
+
+/* ============================ HERO ============================ */
+#hero{padding:54px 0 78px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:50px;align-items:center}
+.hero-copy{max-width:560px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-family:var(--body);font-weight:600;font-size:13px;color:#eaf2ff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 13px;border-radius:999px}
+.chip svg{width:14px;height:14px;color:#fff}
+#hero h1{margin:4px 0 0;color:#fff}
+#hero h1 .small{display:block;font-size:.36em;font-family:var(--display);font-weight:600;letter-spacing:0;color:#cdddff;margin-bottom:14px;line-height:1.25;text-transform:none}
+.hero-copy p.lead{margin:22px 0 0;max-width:500px}
+.hero-copy p.lead b{color:#fff;font-weight:600}
+.hero-proof{display:flex;align-items:center;gap:14px;margin-top:28px;flex-wrap:wrap}
+.avatars{display:flex}
+.avatars span{width:38px;height:38px;border-radius:50%;border:2px solid #1c54d6;margin-left:-11px;display:grid;place-items:center;overflow:hidden}
+.avatars span svg{width:21px;height:21px}
+.avatars span img{width:100%;height:100%;object-fit:cover}
+.avatars span:first-child{margin-left:0}
+.hero-proof .stars{color:#ffc24b;font-size:15px;letter-spacing:2px}
+.hero-proof small{color:#cdddff;font-size:13.5px;display:block;line-height:1.4}
+.hero-proof b{color:#fff}
+
+/* test card */
+.test-card{background:var(--white);color:var(--ink);border-radius:18px;overflow:hidden;box-shadow:var(--sh-lg)}
+.tc-head{padding:15px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--sky-tint)}
+.tc-head .lhs{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;font-size:14px;color:var(--ink)}
+.tc-head .live{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(31,107,255,.16);animation:pulse 1.8s infinite}
+.tc-timer{font-family:var(--body);font-weight:600;font-size:12.5px;color:var(--slate-2);display:flex;align-items:center;gap:6px}
+.tc-timer svg{width:14px;height:14px}
+.progress{height:5px;background:var(--line);position:relative;overflow:hidden}
+.progress .bar{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--blue),var(--sky));transition:width .5s var(--ease)}
+.tc-body{padding:28px 28px 30px;min-height:420px;display:flex;flex-direction:column}
+
+.q-step{display:none;animation:stepIn .42s var(--ease) both}
+.q-step.active{display:flex;flex-direction:column;flex:1}
+@keyframes stepIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.intro-icon{display:flex;justify-content:center;margin:4px auto 18px}
+.intro-icon img{height:60px;width:auto}
+.q-step.intro{text-align:center;align-items:center;justify-content:center}
+.q-step.intro h2{font-size:clamp(27px,3.6vw,35px);margin-bottom:11px;color:var(--ink)}
+.q-step.intro>p{color:var(--slate);max-width:330px;margin:0 auto 4px;font-size:15px}
+.intro-points{display:flex;flex-direction:column;gap:11px;margin:22px 0 26px;width:100%;max-width:336px;text-align:left}
+.intro-points li{display:flex;gap:11px;align-items:center;list-style:none;font-size:14.5px;color:var(--slate)}
+.intro-points .ck{width:22px;height:22px;border-radius:50%;background:var(--sky-soft);display:grid;place-items:center;flex-shrink:0}
+.intro-points .ck svg{width:13px;height:13px;color:var(--blue)}
+.intro-points b{color:var(--ink);font-weight:700}
+
+.q-count{font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.02em;text-transform:uppercase;color:var(--blue);margin-bottom:11px}
+.q-title{font-family:var(--display);font-weight:700;font-size:clamp(19px,2.5vw,24px);line-height:1.22;margin-bottom:6px;color:var(--ink)}
+.q-sub{color:var(--slate-2);font-size:14px;margin-bottom:20px}
+.opts{display:flex;flex-direction:column;gap:10px;flex:1}
+.opt{display:flex;align-items:center;gap:13px;text-align:left;width:100%;background:var(--white);border:1.5px solid var(--line);border-radius:12px;padding:14px 15px;font-family:var(--body);font-weight:500;font-size:15px;color:#26344c;transition:border-color .15s,background .15s,box-shadow .15s,transform .1s var(--ease)}
+.opt:hover{border-color:var(--blue);background:var(--sky-tint);transform:translateX(3px);box-shadow:var(--sh-sm)}
+.opt .tick{width:22px;height:22px;border-radius:50%;border:2px solid var(--line-2);flex-shrink:0;display:grid;place-items:center;transition:.15s}
+.opt .tick svg{width:12px;height:12px;color:#fff;opacity:0;transform:scale(.4);transition:.15s}
+.opt.sel{border-color:var(--blue);background:var(--sky-soft)}
+.opt.sel .tick{background:var(--blue);border-color:var(--blue)}
+.opt.sel .tick svg{opacity:1;transform:scale(1)}
+.opt .emoji{font-size:20px;width:24px;text-align:center;flex-shrink:0}
+.opt .txt{flex:1}
+
+.age-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;padding:6px 0 0}
+.age-num{font-family:var(--display);font-weight:800;font-size:82px;line-height:1;text-align:center;color:var(--ink)}
+.age-num span{color:var(--blue)}
+.age-label{text-align:center;color:var(--slate-2);font-family:var(--display);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-top:2px}
+.slider{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:6px;margin:32px 0 8px;background:linear-gradient(90deg,var(--blue) 0%,var(--blue) var(--p,40%),var(--line) var(--p,40%));outline:none}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;cursor:grab;border:5px solid var(--blue);box-shadow:var(--sh-sm)}
+.slider::-webkit-slider-thumb:active{cursor:grabbing}
+.slider::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:#fff;cursor:grab;border:5px solid var(--blue)}
+.slider-ends{display:flex;justify-content:space-between;color:var(--slate-2);font-size:12px;font-family:var(--display);font-weight:600}
+
+.q-nav{display:flex;align-items:center;gap:10px;margin-top:22px}
+.btn{font-family:var(--display);font-weight:700;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:background .15s,transform .12s var(--ease),box-shadow .2s}
+.btn-primary{background:var(--coral);color:#fff;padding:16px 26px;font-size:16px;flex:1;box-shadow:var(--sh-coral)}
+.btn-primary:hover{background:var(--coral-600);transform:translateY(-2px)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-primary svg{width:18px;height:18px}
+/* attention-grabbing Start-test CTA */
+.start-btn{position:relative;font-size:18.5px!important;padding:20px 26px!important;letter-spacing:.005em;animation:startPulse 2s ease-in-out infinite}
+.start-btn svg{width:20px;height:20px;transition:transform .2s var(--ease)}
+.start-btn:hover{animation:none;background:var(--coral-600)}
+.start-btn:hover svg{transform:translateX(4px)}
+@keyframes startPulse{
+  0%,100%{box-shadow:0 14px 30px -10px rgba(239,156,132,.55),0 0 0 0 rgba(239,156,132,.34)}
+  50%{box-shadow:0 18px 40px -8px rgba(239,156,132,.85),0 0 0 7px rgba(239,156,132,0)}
+}
+.start-nudge{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;color:var(--blue);font-family:var(--display);font-weight:600;font-size:12.5px}
+.start-nudge .live2{width:7px;height:7px;border-radius:50%;background:#27c06b;box-shadow:0 0 0 3px rgba(39,192,107,.18);animation:pulse 2s infinite}
+.btn-ghost{background:var(--white);border:1.5px solid var(--line-2);color:var(--slate);padding:15px 18px;font-size:14px}
+.btn-ghost:hover{color:var(--ink);border-color:var(--slate-2);background:var(--sky-tint)}
+.btn-ghost svg{width:16px;height:16px}
+.tc-foot{text-align:center;color:var(--slate-2);font-size:12.5px;margin-top:15px;display:flex;align-items:center;justify-content:center;gap:7px}
+.tc-foot svg{width:13px;height:13px;color:#27c06b}
+
+/* analyzing + done */
+.analyzing,.done-state{text-align:center;align-items:center;justify-content:center}
+.ana-ring{width:84px;height:84px;margin:0 auto 20px;position:relative}
+.ana-ring svg{transform:rotate(-90deg)}
+.ana-ring .track{fill:none;stroke:var(--line);stroke-width:7}
+.ana-ring .fill{fill:none;stroke:var(--blue);stroke-width:7;stroke-linecap:round;stroke-dasharray:239;stroke-dashoffset:239}
+.ana-pct{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:23px;color:var(--ink)}
+.ana-status{font-family:var(--display);font-weight:600;color:var(--slate);font-size:15px;min-height:22px;transition:opacity .25s}
+.done-check{width:74px;height:74px;border-radius:50%;background:linear-gradient(145deg,#27c06b,#159a52);display:grid;place-items:center;margin:0 auto 18px;box-shadow:0 14px 30px -10px rgba(21,154,82,.5)}
+.done-check svg{width:38px;height:38px;color:#fff}
+.done-state h2{font-size:30px;margin-bottom:8px;color:var(--ink)}
+.done-state p{color:var(--slate);margin-bottom:20px}
+
+/* ============================ SECTIONS ============================ */
+section{position:relative;padding:78px 0}
+.sec-head{text-align:center;max-width:680px;margin:0 auto 46px}
+.sec-head .eyebrow{margin-bottom:14px}
+.sec-head p{color:var(--slate);margin-top:13px;font-size:16.5px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== RESULTS ===== */
+#results{display:none;padding:52px 0 34px;background:var(--paper)}
+#results.show{display:block}
+.res-banner{display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.02em;text-transform:uppercase;padding:9px 16px;border-radius:999px;margin:0 auto 18px;box-shadow:var(--sh-blue)}
+.res-banner svg{width:15px;height:15px}
+.res-top{text-align:center;max-width:680px;margin:0 auto 38px}
+#results h2{margin-bottom:12px}
+.res-intro{color:var(--slate);font-size:16.5px;line-height:1.55}
+.res-intro b{color:var(--ink)}
+
+.res-main{display:grid;grid-template-columns:.82fr 1.18fr;gap:20px;max-width:980px;margin:0 auto;align-items:stretch}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:var(--sh-sm)}
+.panel-title{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:12.5px;color:var(--slate-2);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.panel-title svg{width:16px;height:16px;color:var(--blue)}
+
+.age-panel{display:flex;flex-direction:column;align-items:center;text-align:center}
+.gauge{position:relative;width:198px;height:198px;margin:6px 0 4px}
+.gauge svg{transform:rotate(-90deg)}
+.gauge .g-track{fill:none;stroke:var(--line);stroke-width:15}
+.gauge .g-fill{fill:none;stroke:var(--blue);stroke-width:15;stroke-linecap:round;transition:stroke-dashoffset 1.4s var(--ease)}
+.gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gauge-center .num{font-family:var(--display);font-weight:800;font-size:68px;line-height:.85;color:var(--ink)}
+.gauge-center .lbl{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;color:var(--slate-2);margin-top:7px}
+.age-gap{font-family:var(--body);font-weight:600;font-size:15px;color:var(--slate);margin-top:12px}
+.age-gap b{color:var(--red-ink);font-weight:700}
+.age-real{color:var(--slate-2);font-size:13px;margin-top:4px;font-weight:500}
+
+.score-row{margin-bottom:17px}
+.score-row:last-child{margin-bottom:0}
+.score-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+.score-name{font-family:var(--display);font-weight:600;font-size:14.5px;display:flex;align-items:center;gap:9px;color:var(--ink)}
+.score-tag{font-family:var(--display);font-weight:700;font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;padding:3px 7px;border-radius:5px}
+.score-tag.weak{background:var(--red-soft);color:var(--red-ink)}
+.score-tag.comp{background:var(--sky-soft);color:var(--blue)}
+.score-pct{font-family:var(--display);font-weight:800;font-size:21px;font-variant-numeric:tabular-nums}
+.score-track{height:10px;background:var(--line);border-radius:6px;overflow:hidden}
+.score-fill{height:100%;width:0;border-radius:6px;transition:width 1.1s var(--ease)}
+.score-fill.sev{background:linear-gradient(90deg,var(--red),#ff6173)}
+.score-fill.mod{background:linear-gradient(90deg,var(--sky),var(--sky-2))}
+.score-fill.ok{background:linear-gradient(90deg,var(--blue),var(--sky))}
+.score-fill.good{background:linear-gradient(90deg,var(--blue-700),var(--blue))}
+.score-note{font-size:12px;color:var(--slate-2);margin-top:5px;font-weight:500}
+
+.res-focus{max-width:980px;margin:20px auto 0;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:var(--sh-sm);border-left:4px solid var(--blue)}
+.res-focus .wl-tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.03em;text-transform:uppercase;color:var(--blue);margin-bottom:9px}
+.res-focus .wl-tag svg{width:15px;height:15px}
+.res-focus h3{font-size:clamp(23px,3vw,30px);line-height:1.08;margin-bottom:12px;color:var(--ink)}
+.res-focus h3 span{color:var(--blue)}
+.res-focus>p{color:var(--slate);font-size:15.5px;max-width:760px;margin-bottom:24px}
+.focus-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fstep{background:var(--sky-tint);border-radius:var(--r-sm);padding:18px;border-top:2px solid var(--blue)}
+.fstep .n{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.fstep h5{font-family:var(--display);font-weight:700;font-size:16px;margin-bottom:5px;color:var(--ink)}
+.fstep p{font-size:13.5px;color:var(--slate);line-height:1.45}
+
+/* ===== OFFER ===== */
+#offer{padding-top:50px;padding-bottom:0;background:var(--white)}
+.offer-eye{text-align:center}
+.offer-headline{text-align:center;max-width:820px;margin:12px auto 10px}
+.offer-headline span{color:var(--blue)}
+.offer-sub{text-align:center;color:var(--slate);max-width:600px;margin:0 auto 44px;font-size:16.5px}
+.offer-sub b{color:var(--ink)}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;max-width:980px;margin:0 auto}
+
+/* book mockup */
+.mock{display:flex;flex-direction:column;align-items:center;gap:14px;padding:6px 6px 16px}
+.book{width:360px;height:520px;border-radius:5px 10px 10px 5px;position:relative;background:#0e141d;box-shadow:-16px 24px 52px -18px rgba(9,22,51,.55),0 12px 0 -3px rgba(0,0,0,.06);overflow:hidden}
+.book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:14px;z-index:4;background:linear-gradient(90deg,rgba(0,0,0,.45),rgba(255,255,255,.10) 55%,rgba(0,0,0,.18));pointer-events:none}
+.book::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;box-shadow:inset 0 0 60px -22px rgba(0,0,0,.55)}
+.book-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;z-index:2;background:#0e141d}
+.book-fallback{display:none;position:absolute;inset:0;z-index:1;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px 18px;background:linear-gradient(170deg,#1c2737 0%,#0d141d 72%);color:#fff}
+.bf-bar{font-family:var(--display);font-weight:800;font-size:30px;text-transform:uppercase;letter-spacing:.01em;background:#79e2ec;color:#08131a;padding:2px 14px;border-radius:3px}
+.bf-101{font-family:var(--display);font-weight:800;font-size:80px;line-height:.82;margin:11px 0 18px}
+.bf-foot{display:flex;flex-direction:column;gap:5px;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:25px;line-height:1.05}
+.bf-foot .bf-hl{background:#79e2ec;color:#08131a;border-radius:2px}
+.bf-brand{position:absolute;bottom:16px;left:0;right:0;font-family:var(--display);font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#9fb2d6}
+.mock-badge{position:absolute;top:64px;right:-4px;z-index:3;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.02em;text-transform:uppercase;background:var(--white);color:var(--blue);padding:8px 13px;border-radius:999px;box-shadow:var(--sh)}
+.mock-tag{background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);padding:10px 13px;display:flex;align-items:center;gap:9px;box-shadow:var(--sh)}
+.mock-tag svg{width:20px;height:20px;color:var(--blue)}
+.mock-tag b{font-family:var(--display);font-weight:700;font-size:13.5px;display:block;line-height:1.1;color:var(--ink)}
+.mock-tag small{color:var(--slate-2);font-size:11px}
+
+/* timer above the ebook (mirrors the top promo banner) */
+.mock-timer{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;text-align:center;width:100%;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 16px}
+.mt-msg,.mt-then{font-size:13px;font-weight:600;color:var(--slate)}
+.mt-then b{color:var(--ink);font-weight:800}
+.mock-clock{display:inline-flex;gap:6px;font-family:var(--display);font-weight:800;font-variant-numeric:tabular-nums}
+.mock-clock span{display:inline-flex;align-items:baseline;justify-content:center;gap:1px;background:var(--ink);border:1px solid var(--line-2);color:#ffd23f;padding:5px 8px;border-radius:8px;font-size:16px;min-width:42px;text-align:center;box-shadow:var(--sh-sm)}
+.mock-clock span b{color:var(--blue);font-weight:700;font-size:10px;text-transform:lowercase;margin-left:1px}
+.mock-note{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;color:var(--slate-2)}
+.mock-note svg{width:13px;height:13px;flex:none}
+
+/* buy card */
+.buy-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:8px 0 0;box-shadow:var(--sh);overflow:hidden}
+.buy-card .bc-top{height:6px;background:linear-gradient(90deg,var(--blue),var(--sky))}
+.bc-pad{padding:26px 28px 28px}
+.buy-personal{display:none;align-items:center;gap:9px;background:var(--sky-soft);border-left:3px solid var(--blue);border-radius:var(--r-sm);padding:11px 13px;font-size:13.5px;color:#234; margin-bottom:20px}
+.buy-personal.show{display:flex}
+.buy-personal svg{width:17px;height:17px;color:var(--blue);flex-shrink:0}
+.buy-personal b{color:var(--ink);font-weight:700}
+.buy-card h3{font-size:26px;line-height:1.04;margin-bottom:4px;color:var(--ink)}
+.buy-card .sub{color:var(--slate);font-size:14px;margin-bottom:20px}
+.incl{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+.incl li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:#2b3a52;line-height:1.4}
+.incl li .ci{width:21px;height:21px;border-radius:6px;background:var(--blue);display:grid;place-items:center;flex-shrink:0;margin-top:1px}
+.incl li .ci svg{width:12px;height:12px;color:#fff}
+.incl li b{color:var(--ink);font-weight:700}
+.incl li .v{margin-left:auto;font-family:var(--display);font-weight:700;font-size:12.5px;color:var(--slate-2);white-space:nowrap;align-self:center}
+.incl li .v s{color:var(--slate-2);opacity:.6;font-weight:600;margin-right:2px}
+.value-strike{color:var(--slate);font-size:13.5px;margin:0 0 14px;padding-top:16px;border-top:1px solid var(--line)}
+.value-strike b{color:var(--ink)}
+.price-row{display:flex;align-items:baseline;justify-content:center;gap:13px;margin-bottom:6px}
+.price-now{font-family:var(--display);font-weight:800;font-size:58px;line-height:.85;color:var(--ink)}
+.price-was{display:flex;flex-direction:column;gap:3px}
+.price-was .off{font-family:var(--display);font-weight:700;font-size:11.5px;color:#fff;background:var(--red);padding:3px 8px;border-radius:5px;letter-spacing:.02em;width:fit-content;text-transform:uppercase}
+.buy-btn{width:100%;background:var(--coral);color:#fff;padding:19px;border-radius:12px;font-family:var(--display);font-weight:700;font-size:18px;transition:background .15s,transform .12s var(--ease),box-shadow .2s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:6px;box-shadow:var(--sh-coral)}
+.buy-btn:hover{background:var(--coral-600);transform:translateY(-2px);box-shadow:0 22px 44px -14px rgba(239,156,132,.6)}
+.buy-btn svg{width:20px;height:20px}
+.buy-sub{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:15px;flex-wrap:wrap}
+.buy-sub span{display:flex;align-items:center;gap:6px;color:var(--slate-2);font-size:12px;font-weight:600}
+.buy-sub svg{width:14px;height:14px;color:#27c06b}
+.buy-lock{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding-top:15px;border-top:1px solid var(--line);color:var(--slate);font-size:12.5px;font-weight:500}
+.buy-lock svg{width:14px;height:14px;color:var(--red-ink)}
+.buy-lock b{color:var(--ink);font-weight:700}
+
+/* trust strip */
+.trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;background:var(--paper)}
+.trust-strip .wrap{display:flex;align-items:center;justify-content:center;gap:14px 40px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:9px;color:var(--slate);font-family:var(--display);font-weight:600;font-size:13.5px}
+.trust-item svg{width:18px;height:18px;color:var(--blue)}
+.trust-item b{color:var(--ink)}
+
+/* problem */
+.agi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:880px;margin:0 auto}
+.agi{display:flex;gap:13px;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:19px 20px;align-items:flex-start;box-shadow:var(--sh-sm)}
+.agi .x{width:28px;height:28px;border-radius:8px;background:var(--sky-soft);display:grid;place-items:center;flex-shrink:0}
+.agi .x svg{width:15px;height:15px;color:var(--blue)}
+.agi p{font-size:14.5px;color:var(--slate);line-height:1.45}
+.agi p b{color:var(--ink)}
+.agi-note{text-align:center;max-width:640px;margin:32px auto 0;font-size:18px;color:var(--ink);font-weight:500}
+.agi-note b{color:var(--blue);font-weight:700}
+
+/* video testimonials */
+#video-proof{background:var(--sky-tint)}
+.vidg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1020px;margin:0 auto}
+.vid-frame{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-sm);background:#0c1830 center/cover no-repeat;cursor:pointer;transition:transform .2s ease}
+.vid-frame:hover{transform:translateY(-2px)}
+.vid-frame.placeholder{background:linear-gradient(135deg,#1b2c4a,#0c1830);display:flex;align-items:center;justify-content:center}
+.vid-frame .vid-label{position:absolute;bottom:12px;left:14px;color:rgba(255,255,255,.55);font-family:var(--body);font-weight:600;font-size:12.5px;letter-spacing:.02em}
+.vid-frame .play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.vid-frame .play-btn i{width:58px;height:58px;border-radius:50%;background:rgba(11,21,38,.5);border:2px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;transition:transform .2s ease,background .2s ease}
+.vid-frame .play-btn svg{margin-left:3px}
+.vid-frame:hover .play-btn i{background:var(--blue);border-color:var(--blue);transform:scale(1.08)}
+
+/* testimonials */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1020px;margin:0 auto}
+.tcard{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;display:flex;flex-direction:column;box-shadow:var(--sh-sm)}
+.tcard .stars{color:#ffc24b;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.tcard p{font-size:14.5px;color:#2b3a52;line-height:1.55;flex:1}
+.tcard p .hl{color:var(--ink);font-weight:600;box-shadow:inset 0 -8px 0 var(--sky-soft)}
+.tcard .who{display:flex;align-items:center;gap:11px;margin-top:16px;padding-top:15px;border-top:1px solid var(--line)}
+.tcard .who .av{width:42px;height:42px;border-radius:50%;flex-shrink:0;overflow:hidden;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:14px;color:#fff}
+.tcard .who .av img{width:100%;height:100%;object-fit:cover}
+.tcard .who b{font-family:var(--display);font-weight:700;font-size:14.5px;display:block;line-height:1.2;color:var(--ink)}
+.tcard .who small{color:var(--slate-2);font-size:12px;display:flex;align-items:center;gap:5px}
+.tcard .who small svg{width:12px;height:12px;color:#27c06b}
+
+/* best-image slot in vidg */
+.tg-best{display:flex;flex-direction:column;align-items:center;gap:10px}
+.tg-best img{width:100%;border-radius:var(--r);box-shadow:var(--sh-sm)}
+.tg-best p{font-family:var(--display);font-weight:700;font-size:14.5px;color:var(--ink);text-align:center}
+
+/* testimonial image marquee */
+.tm-wrap{overflow:hidden;position:relative;margin-top:32px}
+.tm-wrap::before,.tm-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.tm-wrap::before{left:0;background:linear-gradient(to right,var(--white),transparent)}
+.tm-wrap::after{right:0;background:linear-gradient(to left,var(--white),transparent)}
+.tm-track{display:flex;gap:10px;padding:5px 0;width:max-content}
+.tm-track.fwd{animation:tm-fwd 55s linear infinite}
+.tm-track.rev{animation:tm-rev 48s linear infinite}
+.tm-wrap:hover .tm-track{animation-play-state:paused}
+.tm-track img{height:190px;width:auto;border-radius:10px;flex-shrink:0;display:block;pointer-events:none}
+@keyframes tm-fwd{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tm-rev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media(prefers-reduced-motion:reduce){.tm-track{animation-play-state:paused!important}}
+
+/* guarantee (dark band) */
+#guarantee{padding:74px 0}
+.guar{max-width:820px;margin:0 auto;background:var(--band-glow),var(--band);border-radius:18px;padding:40px 44px;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;box-shadow:0 30px 70px -30px rgba(31,107,255,.5);border:1px solid rgba(255,255,255,.14)}
+.guar-seal{width:140px;flex-shrink:0;display:grid;place-items:center}
+.guar-seal img{width:140px;height:auto}
+.guar-info h3{font-size:26px;margin-bottom:11px;color:#fff}
+.guar-info p{color:#dbe8ff;font-size:15px;line-height:1.55}
+.guar-info p b{color:#fff}
+
+/* founder */
+.founder{max-width:860px;margin:0 auto;display:grid;grid-template-columns:188px 1fr;gap:34px;align-items:center}
+.founder-img{aspect-ratio:1;border-radius:var(--r);background:linear-gradient(160deg,var(--sky-soft),#dde9ff);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;overflow:hidden;position:relative;border:1px solid var(--line)}
+.founder-img .ph-ic{width:58px;height:58px;color:var(--sky)}
+.founder-img .ph-note{text-align:center;font-size:10.5px;color:var(--slate-2);font-family:var(--display);font-weight:600;letter-spacing:.02em}
+.founder-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;z-index:2;display:block}
+.founder-info .eyebrow{margin-bottom:12px}
+.founder-info h3{font-size:28px;margin-bottom:13px;color:var(--ink)}
+.founder-info p{color:var(--slate);font-size:15.5px;margin-bottom:13px;line-height:1.6}
+.founder-info p b{color:var(--ink)}
+.founder-info .sig{font-family:var(--display);font-weight:800;font-size:24px;color:var(--blue);margin-top:6px}
+.founder-info .sig small{display:block;font-family:var(--body);font-weight:500;font-size:12.5px;color:var(--slate-2);margin-top:2px}
+
+/* faq */
+.faq{max-width:760px;margin:0 auto}
+.faq-item{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--white);margin-bottom:11px;box-shadow:var(--sh-sm);transition:border-color .2s}
+.faq-item.open{border-color:var(--line-2)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;padding:19px 20px;font-family:var(--display);font-weight:700;font-size:16px;color:var(--ink)}
+.faq-q .pm{width:22px;height:22px;flex-shrink:0;position:relative}
+.faq-q .pm::before,.faq-q .pm::after{content:"";position:absolute;background:var(--blue);border-radius:1px;transition:.25s}
+.faq-q .pm::before{left:4px;right:4px;top:10px;height:2px}
+.faq-q .pm::after{top:4px;bottom:4px;left:10px;width:2px}
+.faq-item.open .pm::after{transform:scaleY(0)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.faq-a p{padding:0 20px 20px;color:var(--slate);font-size:14.5px;line-height:1.6}
+.faq-a p b{color:var(--ink)}
+
+/* final cta (dark band) */
+#final{text-align:center;padding:84px 0}
+#final .price-tag{display:inline-flex;align-items:baseline;gap:10px;margin:16px 0 6px;font-family:var(--display);font-weight:800}
+#final .price-tag .now{font-size:54px;color:#fff}
+#final .price-tag .was{font-size:22px;color:#7e93ba;text-decoration:line-through}
+#final .btn-primary{flex:none;display:inline-flex;padding:20px 48px;font-size:19px;margin-top:18px}
+#final .micro{color:#cdddff;font-size:12.5px;margin-top:15px;font-weight:500}
+#final h2 span{color:#a9d2ff}
+#final .ps{color:#d6e4ff;font-size:14.5px;line-height:1.65;max-width:520px;margin:30px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.16);font-style:italic;text-align:left}
+#final .ps .ps-sig{font-style:normal;font-family:var(--display);font-weight:700;color:#fff;white-space:nowrap}
+
+/* footer */
+footer{background:var(--paper);color:var(--slate);padding:46px 0 38px;border-top:1px solid var(--line)}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;margin-bottom:26px}
+.foot-top .brand{color:var(--ink)}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;color:var(--slate);font-family:var(--display);font-weight:600}
+.foot-links a:hover{color:var(--blue)}
+.disclaimer{font-size:12px;color:var(--slate);line-height:1.6;max-width:860px;border-top:1px solid var(--line);padding-top:20px}
+.disclaimer b{color:var(--ink)}
+
+/* responsive */
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero-copy{max-width:none;text-align:center;margin:0 auto}
+  .hero-copy p.lead,.hero-badges{margin-left:auto;margin-right:auto}
+  .hero-badges{justify-content:center}.hero-proof{justify-content:center}
+  .res-main{grid-template-columns:1fr;gap:16px}
+  .offer-grid{grid-template-columns:1fr;gap:42px}
+  .mock{order:-1}
+  .founder{grid-template-columns:1fr;text-align:center;gap:22px}
+  .founder-img{max-width:168px;margin:0 auto}
+}
+@media(max-width:760px){
+  body{font-size:16px}
+  section{padding:58px 0}
+  .promo-msg,.promo-then{display:none}
+  .promo-in{gap:10px;min-height:50px}
+  .promo-flag{font-size:10.5px;padding:5px 9px}
+  .promo-clock{gap:8px}
+  .promo-clock span{font-size:22px}
+  .agi-grid,.focus-steps,.vidg,.tg{grid-template-columns:1fr}
+  .guar{grid-template-columns:1fr;text-align:center;padding:32px 26px;gap:20px}
+  .guar-seal{margin:0 auto}
+  .tc-body{padding:22px 18px 24px;min-height:0}
+  .foot-top{flex-direction:column}
+  .nav-meta{display:none}
+  #final .price-tag .now{font-size:44px}
+}
+@media(max-width:420px){
+  .wrap{padding:0 16px}
+  .opt{padding:12px;font-size:14px}
+  .book{width:244px;height:330px}.book-title{font-size:40px}
+  .promo-in{gap:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.12s!important;scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ====================== STICKY TOP BARS ====================== -->
+<div class="topbars">
+  <div class="promo">
+    <div class="wrap promo-in">
+      <span class="promo-flag"><span class="pdot"></span> Launch week</span>
+      <span class="promo-msg">Founding-member price ends in</span>
+      <span class="promo-clock" id="bannerclock"></span>
+      <span class="promo-then">then it's <b id="promo-full">$258 </b></span>
+    </div>
+  </div>
+  <header id="site-header">
+    <div class="wrap nav">
+      <a href="#top" class="brand">
+        <span class="mark"><img src="assets/img/images.jpg" alt="Elastaboy logo" /></span>
+        <img src="assets/img/reboryn.png" alt="Reboryn" class="wordmark" />
+      </a>
+      <div class="nav-meta">Mobility 101</div>
+      <a href="#hero" class="nav-cta" id="nav-cta">Take the test</a>
+    </div>
+  </header>
+</div>
+
+<!-- ====================== HERO + TEST ====================== -->
+<a id="top"></a>
+<section id="hero" class="band-dark">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="hero-badges">
+        <span class="chip"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="2"/><path d="M12 9v4l2.5 2M9 2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> 60-second test</span>
+        <span class="chip"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg> No "touch your toes"</span>
+        <span class="chip"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Instant result</span>
+      </div>
+      <h1>
+        <span class="small">The real reason you're still stiff —</span>
+        It's not where it hurts.
+      </h1>
+      <p class="lead">One weak link quietly shuts down from sitting, and the rest of your body picks up the slack. This 60-second test finds <b>your</b> weak link, scores every joint, and hands you the exact 10-minute fix to start with.</p>
+      <div class="hero-proof">
+        <div class="avatars" aria-hidden="true">
+          <span><img src="assets/img/1-untitled-DSC_5241-1492f930-1500.jpg" alt="" /></span>
+          <span><img src="assets/img/8I8A0034-scaled.jpg" alt="" /></span>
+          <span><img src="assets/img/DSC_5796crop-web.webp" alt="" /></span>
+          <span><img src="assets/img/a0e8e70c9a3c4037697a29e56cf0943a.jpg" alt="" /></span>
+          <span><img src="assets/img/istockphoto-1961053928-612x612.jpg" alt="" /></span>
+        </div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <small>Taken by <b>19,400+ people</b> who trust my program.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE TEST -->
+    <div class="test-card" id="test">
+      <div class="tc-head">
+        <div class="lhs"><span class="live"></span> Mobility Diagnostic</div>
+        <div class="tc-timer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="2"/><path d="M12 9v4l2.5 2M9 2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> ~60 sec</div>
+      </div>
+      <div class="progress"><div class="bar" id="progbar"></div></div>
+      <div class="tc-body" id="tcbody"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== RESULTS ====================== -->
+<section id="results">
+  <div class="wrap">
+    <div class="res-top">
+      <span class="res-banner"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Your results are in</span>
+      <h2 id="res-h2">Here's what your body just told us</h2>
+      <p class="res-intro" id="res-intro"></p>
+    </div>
+
+    <div class="res-main">
+      <div class="panel age-panel">
+        <div class="panel-title"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="2"/><path d="M12 9v4l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Your mobility age</div>
+        <div class="gauge">
+          <svg width="198" height="198" viewBox="0 0 198 198">
+            <circle class="g-track" cx="99" cy="99" r="83"/>
+            <circle class="g-fill" id="gfill" cx="99" cy="99" r="83" stroke-dasharray="521" stroke-dashoffset="521"/>
+          </svg>
+          <div class="gauge-center"><div class="num" id="mobage">--</div><div class="lbl">Mobility age</div></div>
+        </div>
+        <div class="age-gap" id="age-gap"></div>
+        <div class="age-real" id="age-real"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Your mobility scorecard</div>
+        <div id="scorecard"></div>
+      </div>
+    </div>
+
+    <div class="res-focus">
+      <div class="wl-tag"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg> Your #1 weak link</div>
+      <h3 id="wl-title">Your <span>hips</span> are the weak link</h3>
+      <p id="wl-desc"></p>
+      <div class="focus-steps" id="focus-steps"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== OFFER ====================== -->
+<section id="offer">
+  <div class="wrap">
+    <div class="offer-eye"><span class="eyebrow"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> The fix — not another band-aid</span></div>
+    <h2 class="offer-headline" id="offer-headline">Stop stretching the spot that hurts. <span>Fix the link that's actually broken.</span></h2>
+    <p class="offer-sub" id="offer-sub"><b>Mobility 101</b> is the 10-minute-a-day plan that rebuilds your chain in the right order — so the stiffness leaves and <b>stays gone.</b></p>
+
+    <div class="offer-grid">
+      <!-- mockup -->
+      <div class="mock">
+        <div class="mock-timer">
+          <span class="promo-flag"><span class="pdot"></span> Launch week</span>
+          <span class="mt-msg">Founding-member price ends in</span>
+          <span class="mock-clock" id="offerclock"></span>
+          <span class="mt-then">then it's <b id="offer-full">$139</b> again</span>
+        </div>
+        <p class="mock-note"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="2"/><path d="M12 9v4l2.5 2M9 2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Not a fake timer.</p>
+        <div class="book">
+          <span class="mock-badge">Instant download</span>
+          <img class="book-img" id="ebook-img" src="assets/ebook-cover-full.png" alt="Mobility 101 — Feel 10 Years Younger"
+               onerror="this.dataset.t=(+this.dataset.t||0)+1;var n=+this.dataset.t;if(n===1){this.src='assets/ebook-cover-full.jpg'}else if(n===2){this.src='assets/ebook-cover-full.webp'}else{this.style.display='none';var f=document.getElementById('book-fallback');if(f)f.style.display='flex'}">
+          <!-- styled placeholder shown until you drop your cover into /assets -->
+          <div class="book-fallback" id="book-fallback">
+            <div class="bf-bar">Mobility</div>
+            <div class="bf-101">101</div>
+            <div class="bf-foot"><span>Feel</span><span class="bf-hl">10 Years</span><span>Younger</span></div>
+            <div class="bf-brand">Elastaboy</div>
+          </div>
+        </div>
+        <div class="mock-tag">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M4 4h16v13H5.5L4 19V4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <div><b>Follow-along videos</b><small>Every move, demoed</small></div>
+        </div>
+      </div>
+
+      <!-- buy card -->
+      <div class="buy-card">
+        <div class="bc-top"></div>
+        <div class="bc-pad">
+          <div class="buy-personal" id="buy-personal">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg>
+            <span id="buy-personal-text">Your weak link is your <b>hips</b> — so this starts there on day one.</span>
+          </div>
+          <h3 id="buy-title">Mobility 101</h3>
+          <p class="sub" id="buy-sub">The complete weak-link mobility system — digital program + follow-along video library.</p>
+          <ul class="incl" id="incl"></ul>
+          <div class="value-strike">Total value <b><span class="strike">$258</span></b> — today, one payment:</div>
+          <div class="price-row">
+            <div class="price-now" id="price-now">$47</div>
+            <div class="price-was">
+              <span class="off" id="price-off">81% OFF</span>
+            </div>
+          </div>
+          <a href="#" class="buy-btn" id="buybtn">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span id="buybtn-label">Get Mobility 101 — $47</span>
+          </a>
+          <div class="buy-sub">
+            <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="2"/></svg> Secure checkout</span>
+            <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M3 8l9 6 9-6M3 8v10h18V8M3 8l9-5 9 5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> Instant access</span>
+            <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <span id="bs-guar">60-day</span> guarantee</span>
+          </div>
+          <div class="buy-lock">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Price jumps to <b id="lock-full">$258</b> the moment the launch timer hits zero.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- trust strip — inside offer so it reads as part of the purchase decision -->
+  <div class="trust-strip" style="margin-top:36px">
+    <div class="wrap">
+      <div class="trust-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="2"/><path d="M12 9v4l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> <b>10 min</b>&nbsp;a day</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 18v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> <b>Zero gear</b></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> <b>Any age</b></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <b id="ts-guar">60-day</b> guarantee</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== VIDEO TESTIMONIALS ====================== -->
+<section id="video-proof">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow soft">Real readers, real words</span>
+      <h2>Hear it <span class="blue">straight from them</span></h2>
+      <p>Six readers who found their weak link — in their own words.</p>
+    </div>
+    <!-- Each card is a thumbnail + play button that links straight to YouTube (opens in a new tab).
+         Testimonial 1 is live. For testimonials 2-6: replace VIDEO_ID_# in the href with the real video ID,
+         then add style="background-image:url('https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg')" and remove
+         the "placeholder" class + the <span class="vid-label"> line. -->
+    <div class="vidg">
+      <a class="vid-frame reveal" href="https://www.youtube.com/watch?v=NyTHsnR88HE" target="_blank" rel="noopener" aria-label="Watch reader testimonial 1 on YouTube" style="background-image:url('https://img.youtube.com/vi/NyTHsnR88HE/hqdefault.jpg')">
+        <span class="play-btn"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M8 5v14l11-7z"/></svg></i></span>
+      </a>
+      <a class="vid-frame reveal" href="https://www.youtube.com/watch?v=l1bR-2C6Rm4" target="_blank" rel="noopener" aria-label="Watch reader testimonial 2 on YouTube" style="background-image:url('https://img.youtube.com/vi/l1bR-2C6Rm4/hqdefault.jpg')">
+        <span class="play-btn"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M8 5v14l11-7z"/></svg></i></span>
+      </a>
+      <a class="vid-frame reveal" href="https://www.youtube.com/watch?v=TDHkaQ84Nlw" target="_blank" rel="noopener" aria-label="Watch reader testimonial 3 on YouTube" style="background-image:url('https://img.youtube.com/vi/TDHkaQ84Nlw/hqdefault.jpg')">
+        <span class="play-btn"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M8 5v14l11-7z"/></svg></i></span>
+      </a>
+      <a class="vid-frame reveal" href="https://www.youtube.com/watch?v=iyS8svEyxSY" target="_blank" rel="noopener" aria-label="Watch reader testimonial 4 on YouTube" style="background-image:url('https://img.youtube.com/vi/iyS8svEyxSY/hqdefault.jpg')">
+        <span class="play-btn"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M8 5v14l11-7z"/></svg></i></span>
+      </a>
+      <a class="vid-frame reveal" href="https://www.youtube.com/watch?v=3i_NiX0p3UQ" target="_blank" rel="noopener" aria-label="Watch reader testimonial 5 on YouTube" style="background-image:url('https://img.youtube.com/vi/3i_NiX0p3UQ/hqdefault.jpg')">
+        <span class="play-btn"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M8 5v14l11-7z"/></svg></i></span>
+      </a>
+      <div class="tg-best reveal">
+        <img src="assets/img/the%20best.png" alt="Over 1,500 happy readers">
+        <p>1,846 Testemonials in Total.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PROOF ====================== -->
+<section id="proof">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow soft">Real readers</span>
+      <h2>What changes when you fix the <span class="blue">right spot</span></h2>
+    </div>
+    <div class="tm-wrap">
+      <!-- Row 1 scrolls left -->
+      <div class="tm-track fwd">
+        <img src="assets/img/testemonials/065faa48-2832-47dd-8c0e-a35f81a1012a.jpg" alt="">
+        <img src="assets/img/testemonials/IMG_2392.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2393.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2394.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2396.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2397.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2508.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2509.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2510.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2511.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2512.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2513.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2514.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2516.PNG" alt="">
+        <!-- duplicate for seamless loop -->
+        <img src="assets/img/testemonials/065faa48-2832-47dd-8c0e-a35f81a1012a.jpg" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2392.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2393.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2394.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2396.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2397.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2508.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2509.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2510.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2511.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2512.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2513.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2514.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2516.PNG" alt="" aria-hidden="true">
+      </div>
+      <!-- Row 2 scrolls right -->
+      <div class="tm-track rev">
+        <img src="assets/img/testemonials/IMG_2517.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2566.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2567.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2568.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2569.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2570.PNG" alt="">
+        <img src="assets/img/testemonials/IMG_2571.PNG" alt="">
+        <img src="assets/img/testemonials/WhatsApp%20Adam%20Jefferson%20day%2023.jpg" alt="">
+        <img src="assets/img/testemonials/WhatsApp%20Image%202025-01-10%20at%2011.11.46%20PM.jpeg" alt="">
+        <img src="assets/img/testemonials/WhatsApp%20Image%202025-01-10%20at%2011.11.47%20PM%20(1).jpeg" alt="">
+        <img src="assets/img/testemonials/WhatsApp%20Image%202025-01-10%20at%2011.11.47%20PM%20(2).jpeg" alt="">
+        <img src="assets/img/testemonials/WhatsApp%20Image%202025-01-10%20at%2011.11.47%20PM.jpeg" alt="">
+        <img src="assets/img/testemonials/WhatsApp%20Image%202025-01-10%20at%2011.11.48%20PM.jpeg" alt="">
+        <!-- duplicate for seamless loop -->
+        <img src="assets/img/testemonials/IMG_2517.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2566.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2567.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2568.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2569.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2570.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/IMG_2571.PNG" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/WhatsApp%20Adam%20Jefferson%20day%2023.jpg" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/WhatsApp%20Image%202025-01-10%20at%2011.11.46%20PM.jpeg" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/WhatsApp%20Image%202025-01-10%20at%2011.11.47%20PM%20(1).jpeg" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/WhatsApp%20Image%202025-01-10%20at%2011.11.47%20PM%20(2).jpeg" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/WhatsApp%20Image%202025-01-10%20at%2011.11.47%20PM.jpeg" alt="" aria-hidden="true">
+        <img src="assets/img/testemonials/WhatsApp%20Image%202025-01-10%20at%2011.11.48%20PM.jpeg" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== GUARANTEE ====================== -->
+<section id="guarantee">
+  <div class="wrap">
+    <div class="guar reveal">
+      <div class="guar-seal">
+        <img src="assets/img/money-back.png" alt="60-day money-back guarantee">
+      </div>
+      <div class="guar-info">
+        <h3>Move better, or it's free.</h3>
+        <p>Follow it for <b><span id="g-days-1">60</span> days.</b> If you don't feel a real difference in how your body moves, email me and I'll refund every cent — <b>no forms, no hoops.</b> Worst case, you understand your body better than 99% of people and you're out nothing. The risk sits with me, not you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FOUNDER ====================== -->
+<section id="founder">
+  <div class="wrap">
+    <div class="founder reveal">
+      <div class="founder-img">
+        <img class="founder-photo" src="assets/jake.webp" alt="Jake — founder of Elastaboy" onerror="this.style.display='none'">
+        <svg class="ph-ic" viewBox="0 0 24 24" width="58" height="58" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div class="ph-note">Add your photo</div>
+      </div>
+      <div class="founder-info">
+        <span class="eyebrow">Who's behind this</span>
+        <h3>Hey — I'm Jake.</h3>
+        <p>I did everything "right." Stretching, foam rolling, the physio exercises, the apps. I'd feel great for a day or two, then I'd be stiff and aching all over again. Sound familiar?</p>
+        <p>What finally turned it around wasn't <i>more</i> stretching — it was finding which link in my chain had shut down and rebuilding it in the right order. That's the whole idea here: stop chasing the pain around your body and fix what's actually causing it.</p>
+        <p>That test you just took? It's the first question I ask anyone who comes to me stiff and fed up. Now you've got your answer — let's go fix it.</p>
+        <div class="sig">Jake<small>Founder, Elastaboy</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FAQ ====================== -->
+<section id="faq-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow soft">Before you grab it</span>
+      <h2>Fair questions</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item">
+        <button class="faq-q">Isn't this just stretching I could find free online? <span class="pm"></span></button>
+        <div class="faq-a"><p>You can find a thousand stretching videos — and you've probably tried half of them. What you <b>can't</b> find is a sequenced plan that targets <i>your</i> weak link in the order that compounds. Random stretches feel good for an hour. This is built so each move sets up the next.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">I've genuinely tried everything. Why is this different? <span class="pm"></span></button>
+        <div class="faq-a"><p>Because everything you tried treated the <b>symptom</b> — the spot that hurts. This starts at the link that's actually broken and builds strength <i>through</i> the range, so your body stops snapping back to tight.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How much time does it really take? <span class="pm"></span></button>
+        <div class="faq-a"><p>About <b>10 minutes a day.</b> No gym, no equipment, just enough floor space to lie down. Living room, bedroom, hotel room — all fine.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">I'm in my 60s/70s — or I have an old injury. Will it work? <span class="pm"></span></button>
+        <div class="faq-a"><p>Yes — and the stiffer you are now, the more obvious the change tends to be. Every move has an easier version, so you start where your body is today. <b>If anything's sharp, recent, or you're under medical care, clear it with your doctor first.</b></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What exactly do I get, and how? <span class="pm"></span></button>
+        <div class="faq-a"><p>A digital program you read on any device, plus the follow-along video library and bonuses. <b>Instant download</b> — in your inbox within a minute of checkout. One payment, yours for life.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if it doesn't work for me? <span class="pm"></span></button>
+        <div class="faq-a"><p>You pay nothing. Try it for <b><span id="g-days-2">60</span> days</b> — if you don't feel a real difference, email me and I'll refund every cent, no questions asked.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FINAL CTA ====================== -->
+<section id="final" class="band-dark">
+  <div class="wrap">
+    <div class="reveal" style="max-width:640px;margin:0 auto">
+      <span class="eyebrow"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg> Your weak link is named. Go fix it.</span>
+      <h2 style="margin:16px 0 8px">In 28 days you'll either still be stiff — <span>or you'll have started.</span></h2>
+      <p class="lead" style="max-width:520px;margin:0 auto">Best case, you wake up moving like you used to. Worst case, you get your money back and understand your body better than 99% of people.</p>
+      <div class="price-tag"><span class="now" id="final-now">$47</span> <span class="was" id="final-was">$139</span></div>
+      <div><a href="#" class="btn btn-primary" id="finalbtn"><span id="finalbtn-label">Get Mobility 101 — $47</span> →</a></div>
+      <p class="micro">One payment · instant download · <span id="fm-guar">60-day</span> money-back guarantee</p>
+      <p class="ps">P.S. Whatever your weak link turned out to be — it didn't get stiff overnight, and it won't loosen overnight either. But ten honest minutes today beats another year of "I'll sort it out eventually." I've sat on both sides of that one. <span class="ps-sig">— Jake</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <a href="#top" class="brand"><span class="mark"><img src="assets/img/images.jpg" alt="Elastaboy logo" /></span> <img src="assets/img/reboryn.png" alt="Reboryn" class="wordmark" /></a>
+      <div class="foot-links">
+        <a href="#test">Take the test</a>
+        <a href="#offer">Get the program</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <p class="disclaimer">
+      <b>A quick note:</b> This is an educational mobility program, not medical advice, diagnosis or treatment. The "mobility age" and joint scores are a general self-assessment to point you in the right direction — not a clinical measurement. Always check with a qualified health professional before starting any new exercise program, especially if you have an injury, a medical condition, or pain that's sharp, radiating or recent. Results vary based on your starting point and consistency. <br><br>
+      © <span id="year">2026</span> Elastaboy. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   ====================  EDIT YOUR OFFER HERE  ================
+   ============================================================ */
+const CONFIG = {
+  brand:        "Alastaboy",
+  price:        "$47",
+  anchor:       "$258",
+  discountPct:  "81% OFF",
+  checkoutUrl:  "#",          // <-- paste your Stripe / Gumroad / ThriveCart link
+  guaranteeDays: 60,
+  founderName:  "Jake",
+  // launch countdown in the top banner — starts at exactly this on a visitor's
+  // first load, then keeps ticking to zero (anchored so it never resets mid-visit).
+  countdown:    { days:4, hours:6, minutes:22, seconds:18 }
+};
+
+/* ====================  TEST QUESTIONS  ==================== */
+const QUESTIONS = [
+  { type:"age" },
+  { q:"How long are you sitting on a normal day?", sub:"Desk, car, couch — it all counts.",
+    opts:[
+      {t:"Under 4 hours", e:"🚶", stiff:0, r:{}},
+      {t:"4–6 hours", e:"💺", stiff:1, r:{hips:1,lowback:1}},
+      {t:"6–9 hours", e:"🖥️", stiff:2, r:{hips:2,lowback:1}},
+      {t:"9+ hours — I live in a chair", e:"🪑", stiff:3, r:{hips:3,lowback:2}}
+    ]},
+  { q:"You've been sitting an hour. You stand up. What happens?", sub:"Be honest — nobody's watching.",
+    opts:[
+      {t:"I pop straight up, no issues", e:"⚡", stiff:0, r:{}},
+      {t:"A little stiff for the first few steps", e:"🙂", stiff:1, r:{hips:1}},
+      {t:"I need a second to 'unlock' before walking", e:"😬", stiff:2, r:{hips:2,lowback:1}},
+      {t:"It's a whole production — I brace on something", e:"😩", stiff:3, r:{hips:2,lowback:2}}
+    ]},
+  { q:"First 10 minutes out of bed in the morning?", sub:"That tells us a lot about your baseline.",
+    opts:[
+      {t:"Loose and ready", e:"☀️", stiff:0, r:{}},
+      {t:"Mildly stiff, fades fast", e:"🌤️", stiff:1, r:{}},
+      {t:"Stiff back and hips, takes a while", e:"⛅", stiff:2, r:{hips:1,lowback:2}},
+      {t:"I feel 20 years older than I am", e:"🌧️", stiff:3, r:{hips:1,tspine:1,lowback:2}}
+    ]},
+  { q:"Which of these sounds most like YOUR body?", sub:"Pick the one that bugs you most.",
+    opts:[
+      {t:"Tight hips — squat or sitting cross-legged feels blocked", e:"🦵", stiff:2, r:{hips:4}},
+      {t:"Stiff ankles & calves — knees ache, I feel unstable", e:"🦶", stiff:2, r:{ankles:4}},
+      {t:"Rounded upper back — stiff neck/shoulders, can't reach overhead", e:"🙆", stiff:2, r:{tspine:4}},
+      {t:"Lower back is the main thing that nags me", e:"🔥", stiff:3, r:{lowback:4,hips:1,tspine:1}}
+    ]},
+  { q:"Squat down as far as you can — heels flat on the floor.", sub:"Go on, try it now. What happened?",
+    opts:[
+      {t:"Full depth, heels down, felt fine", e:"✅", stiff:0, r:{}},
+      {t:"Heels lifted or I tipped backward", e:"↩️", stiff:2, r:{ankles:4}},
+      {t:"Thighs nowhere near parallel — blocked at the hips", e:"⛔", stiff:2, r:{hips:4}},
+      {t:"Knees or back protested — I'd rather not", e:"🚫", stiff:3, r:{hips:2,lowback:2}}
+    ]},
+  { q:"Back to a wall — raise both arms overhead to touch it, without your lower back arching off.", sub:"A real shoulder & upper-back screen.",
+    opts:[
+      {t:"Easy — arms touched, back stayed flat", e:"✅", stiff:0, r:{}},
+      {t:"Arms touched, but my back arched to get there", e:"〰️", stiff:2, r:{tspine:4,lowback:1}},
+      {t:"Couldn't get my arms to the wall at all", e:"⛔", stiff:3, r:{tspine:4}},
+      {t:"My shoulders complained on the way up", e:"😖", stiff:2, r:{tspine:3}}
+    ]},
+  { q:"When you DO stretch, how long before you're stiff again?", sub:"This is the big one.",
+    opts:[
+      {t:"I don't really stretch", e:"🤷", stiff:1, r:{}},
+      {t:"A few hours, tops", e:"⏳", stiff:2, r:{}},
+      {t:"By the next morning I'm back to square one", e:"🔁", stiff:3, r:{}},
+      {t:"Honestly? Almost immediately", e:"😤", stiff:3, r:{}}
+    ]},
+  { q:"What have you already thrown at this?", sub:"Select all that apply — no judgment.", multi:true,
+    opts:[
+      {t:"Stretching / mobility videos", e:"🧘", key:"stretching"},
+      {t:"Foam rolling / massage gun", e:"🛞", key:"foam"},
+      {t:"Physio or chiro", e:"🩺", key:"physio"},
+      {t:"Yoga / Pilates", e:"🕉️", key:"yoga"},
+      {t:"Painkillers / pushing through", e:"💊", key:"pills"},
+      {t:"Nothing yet — starting here", e:"🆕", key:"nothing"}
+    ]}
+];
+
+const REGION_MAX = { hips:11, ankles:8, tspine:8, lowback:11 };
+const REGIONS = [
+  {key:"hips",   label:"Hips & Hip Flexors"},
+  {key:"ankles", label:"Ankles & Feet"},
+  {key:"tspine", label:"Upper Back (T-Spine)"},
+  {key:"lowback",label:"Lower Back"}
+];
+
+/* weak-link result copy (culprit is always hips / ankles / tspine) */
+const LINKS = {
+  hips:{ name:"hips", titleHTML:'Your <span>hips</span> are the weak link',
+    desc:"Years of sitting left your hip flexors short and your glutes half-asleep. Your pelvis tilts, and your lower back quietly takes over the job your hips should be doing — which is exactly why the ache shows up in your back, and why stretching your back never fixes it.",
+    focus:[
+      {h:"Open the hip", p:"Free the joint and lengthen the flexor that sitting jammed short."},
+      {h:"Wake the glutes", p:"Switch the shut-off muscle back on so it shares the load again."},
+      {h:"Load the range", p:"Build strength through the new range so your back can stand down."}
+    ]},
+  ankles:{ name:"ankles & feet", titleHTML:'Your <span>ankles &amp; feet</span> are the weak link',
+    desc:"Your feet and ankles are the foundation — and yours have gone stiff. When the ankle can't bend and absorb load, that force travels straight up into your knees and hips. That's the grinding on stairs, and the feeling of being unstable when you walk.",
+    focus:[
+      {h:"Restore ankle glide", p:"Free the joint so it can bend and absorb load again."},
+      {h:"Build foot strength", p:"Wake up the foot and calf so the foundation stops collapsing."},
+      {h:"Load it under control", p:"Strengthen the range so force stops leaking up to your knees."}
+    ]},
+  tspine:{ name:"upper back", titleHTML:'Your <span>upper back</span> (T-spine) is the weak link',
+    desc:"Hours at a desk rounded your mid-back and glued it stiff. Since it can't extend or rotate, your neck and shoulders strain to pick up the slack — and your lower back arches to help you reach overhead. The stiffness up top is really a mobility debt in the middle.",
+    focus:[
+      {h:"Free the mid-back", p:"Restore extension and rotation where the stiffness actually lives."},
+      {h:"Unload the neck", p:"Take the strain off the shoulders that have been compensating."},
+      {h:"Build overhead strength", p:"Own the new range so your low back stops arching to cheat it."}
+    ]}
+};
+
+/* ====================  DYNAMIC eBOOK / OFFER  ====================
+   Title, cover, headline, bullets all morph to the diagnosis.
+   ================================================================ */
+/* The product is fixed (Mobility 101, with its real cover image). Only the
+   surrounding copy personalises to the test result. */
+const PRODUCT = "Mobility 101";
+const BUY_SUB = "The complete weak-link mobility system — digital program + follow-along video library.";
+const BULLETS = [
+  {lead:"The full Mobility 101 system", rest:"— the complete day-by-day plan, in the order that actually compounds.", v:"$110"},
+  {lead:"4 weak-link tracks", rest:"— hips, ankles, shoulders & lower back. You start where your test says.", v:"$99"},
+  {lead:"Follow-along video library", rest:"— every move demoed, so you never guess on form.", v:"$49"},
+  {lead:"Bonus: The Desk Reset", rest:"— 5 micro-moves that undo 8 hours of sitting.", v:'<s>$29</s> <b style="color:#1f6bff">Free</b>'},
+  {lead:"Bonus: Re-test tracker", rest:"— watch your mobility age drop, week by week.", v:'<s>$18</s> <b style="color:#1f6bff">Free</b>'}
+];
+const OFFER = {
+  default:{
+    headline:`Stop stretching the spot that hurts. <span>Fix the link that's actually broken.</span>`,
+    sub:`<b>Mobility 101</b> is the 10-minute-a-day plan that rebuilds your chain in the right order — so the stiffness leaves and <b>stays gone.</b>`,
+    personal:""
+  },
+  hips:{
+    headline:`Your back isn't the problem. <span>It's your hips — and Mobility 101 starts there.</span>`,
+    sub:`Inside <b>Mobility 101</b>, your hip track frees the joint sitting jammed shut — so your lower back can finally stop covering for it.`,
+    personal:`Your weak link is your <b>hips</b> — so you'll start on the hip track, day one.`
+  },
+  ankles:{
+    headline:`Your knees aren't the problem. <span>It starts at your ankles — and so does Mobility 101.</span>`,
+    sub:`Inside <b>Mobility 101</b>, your ankle track gets stiff ankles bending and absorbing again — so force stops leaking up into your knees and hips.`,
+    personal:`Your weak link is your <b>ankles & feet</b> — so you'll start on the ankle track, day one.`
+  },
+  tspine:{
+    headline:`Your neck isn't the problem. <span>It's your stiff upper back — and Mobility 101 unlocks it.</span>`,
+    sub:`Inside <b>Mobility 101</b>, your shoulder track frees a desk-locked upper back — so your neck and shoulders stop straining to pick up the slack.`,
+    personal:`Your weak link is your <b>upper back</b> — so you'll start on the shoulder track, day one.`
+  }
+};
+
+/* ============================ ENGINE ============================ */
+const $ = s=>document.querySelector(s);
+const $$ = s=>document.querySelectorAll(s);
+const state = { step:0, answers:{}, realAge:38, tried:new Set() };
+const tcbody = $("#tcbody");
+const progbar = $("#progbar");
+const TOTAL = QUESTIONS.length;
+const pad = n=>String(n).padStart(2,"0");
+
+function renderIntro(){
+  tcbody.innerHTML = `
+    <div class="q-step intro active">
+      <div class="intro-icon"><img src="assets/img/reboryn.png" alt="Reboryn"></div>
+      <h2>The 60-second<br>mobility test</h2>
+      <p>9 quick questions. A couple ask you to actually move — no toe-touching, promise.</p>
+      <ul class="intro-points">
+        <li><span class="ck"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Your real <b>&nbsp;mobility age</b></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> A <b>&nbsp;0–100% score&nbsp;</b> for every joint</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> The <b>&nbsp;exact 10-min fix&nbsp;</b> to start with</li>
+      </ul>
+      <button class="btn btn-primary start-btn" style="width:100%" onclick="start()">Start the free test <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="start-nudge"><span class="live2"></span> 19,400+ people TRUST my program</div>
+      <div class="tc-foot"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Free · no email needed to see your result</div>
+    </div>`;
+  progbar.style.width = "0%";
+}
+function start(){ state.step = 1; renderStep(); }
+
+function renderStep(){
+  const i = state.step - 1, Q = QUESTIONS[i];
+  progbar.style.width = (state.step/(TOTAL+1)*100) + "%";
+  if(Q.type === "age"){ return renderAge(); }
+  const isMulti = Q.multi, saved = state.answers[i];
+  const optsHTML = Q.opts.map((o,idx)=>{
+    const sel = isMulti ? state.tried.has(o.key) : (saved===idx);
+    return `<button class="opt ${sel?'sel':''}" data-idx="${idx}" onclick="pick(${i},${idx},${isMulti})">
+      <span class="emoji">${o.e}</span><span class="txt">${o.t}</span>
+      <span class="tick"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>`;
+  }).join("");
+  tcbody.innerHTML = `
+    <div class="q-step active">
+      <div class="q-count">Question ${state.step} of ${TOTAL}</div>
+      <div class="q-title">${Q.q}</div>
+      <div class="q-sub">${Q.sub||""}</div>
+      <div class="opts">${optsHTML}</div>
+      <div class="q-nav">
+        <button class="btn btn-ghost" onclick="back()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>
+        ${ isMulti ? `<button class="btn btn-primary" onclick="next()">Continue <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>` : "" }
+      </div>
+    </div>`;
+}
+function renderAge(){
+  const a = state.realAge;
+  tcbody.innerHTML = `
+    <div class="q-step active">
+      <div class="q-count">Question 1 of ${TOTAL}</div>
+      <div class="q-title">First — how old are you?</div>
+      <div class="q-sub">We'll compare it to how old your body is actually moving.</div>
+      <div class="age-wrap">
+        <div class="age-num"><span id="ageval">${a}</span></div>
+        <div class="age-label">years young</div>
+        <input class="slider" type="range" min="18" max="80" value="${a}" id="ageslider" aria-label="Your age" oninput="ageMove(this.value)">
+        <div class="slider-ends"><span>18</span><span>80+</span></div>
+      </div>
+      <div class="q-nav">
+        <button class="btn btn-ghost" onclick="back()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>
+        <button class="btn btn-primary" onclick="next()">Continue <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>`;
+  ageMove(a);
+}
+function ageMove(v){
+  state.realAge = +v;
+  const el = $("#ageval"); if(el) el.textContent = v;
+  const s = $("#ageslider"); if(s){ s.style.setProperty('--p', ((v-18)/62*100)+'%'); }
+}
+function pick(qi, idx, multi){
+  const Q = QUESTIONS[qi];
+  if(multi){
+    const key = Q.opts[idx].key;
+    state.tried.has(key) ? state.tried.delete(key) : state.tried.add(key);
+    renderStep(); return;
+  }
+  state.answers[qi] = idx;
+  $$(".opt").forEach(o=>o.classList.remove("sel"));
+  const btn = document.querySelector(`.opt[data-idx="${idx}"]`);
+  if(btn) btn.classList.add("sel");
+  setTimeout(next, 240);
+}
+function next(){ if(state.step < TOTAL){ state.step++; renderStep(); } else { analyze(); } }
+function back(){ if(state.step > 0){ state.step--; state.step===0 ? renderIntro() : renderStep(); } }
+
+function analyze(){
+  progbar.style.width = "100%";
+  tcbody.innerHTML = `
+    <div class="q-step analyzing active">
+      <div class="ana-ring"><svg width="84" height="84" viewBox="0 0 84 84"><circle class="track" cx="42" cy="42" r="38"/><circle class="fill" id="anafill" cx="42" cy="42" r="38"/></svg><div class="ana-pct" id="anapct">0%</div></div>
+      <div class="ana-status" id="anastatus">Reading your movement patterns…</div>
+    </div>`;
+  const msgs = ["Reading your movement patterns…","Tracing the chain reaction…","Locating your weak link…","Scoring every joint…","Building your plan…"];
+  let p=0, mi=-1; const fill=$("#anafill"), pct=$("#anapct"), st=$("#anastatus"); const C=239;
+  const iv = setInterval(()=>{
+    p += Math.random()*12 + 7;
+    if(p>=100){ p=100; clearInterval(iv); setTimeout(finishTest, 350); }
+    pct.textContent = Math.floor(p)+"%";
+    fill.style.strokeDashoffset = C - (C*p/100);
+    const ni = Math.min(msgs.length-1, Math.floor(p/20));
+    if(ni!==mi){ mi=ni; st.style.opacity=0; setTimeout(()=>{ st.textContent=msgs[mi]; st.style.opacity=1; },140); }
+  }, 200);
+}
+
+function finishTest(){
+  try { showResults(); } catch(e){ console.error(e); }
+  tcbody.innerHTML = `
+    <div class="q-step done-state active">
+      <div class="done-check"><svg viewBox="0 0 24 24" width="38" height="38" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h2>Nice — all done.</h2>
+      <p>Your read-out's just below. The weak-link bit is the part worth reading.</p>
+      <button class="btn btn-primary" style="width:100%" onclick="document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'})">Show me my results ↓</button>
+    </div>`;
+  setTimeout(()=>{ $("#results").scrollIntoView({behavior:"smooth",block:"start"}); }, 250);
+}
+
+/* ---------- scoring ---------- */
+function computeResult(){
+  let stiff=0, maxStiff=0; const rr={hips:0,ankles:0,tspine:0,lowback:0};
+  QUESTIONS.forEach((Q,qi)=>{
+    if(Q.type==="age"||Q.multi) return;
+    maxStiff += 3; const idx = state.answers[qi]; if(idx==null) return;
+    const o = Q.opts[idx]; stiff += o.stiff||0;
+    if(o.r) for(const k in o.r) rr[k]=(rr[k]||0)+o.r[k];
+  });
+  const S = maxStiff ? stiff/maxStiff : 0;
+  const gap = Math.round(-4 + S*26);
+  const mobAge = Math.max(18, Math.min(95, state.realAge + gap));
+  const pct = {};
+  REGIONS.forEach(reg=>{
+    const norm = Math.min(1, (rr[reg.key]||0)/REGION_MAX[reg.key]);
+    pct[reg.key] = Math.max(12, Math.min(92, Math.round(88 - norm*72)));
+  });
+  const cand=["hips","tspine","ankles"]; let link=cand[0];
+  cand.forEach(k=>{ if(pct[k] < pct[link]) link=k; });
+  return { realAge:state.realAge, mobAge, gap:mobAge-state.realAge, S, pct, link };
+}
+function scoreClass(p){ return p<38?"sev":p<58?"mod":p<74?"ok":"good"; }
+function scoreNote(p){ return p<38?"Severely restricted":p<58?"Restricted":p<74?"Room to improve":"Solid"; }
+
+function showResults(){
+  const R = computeResult(); window.__R = R;
+  const L = LINKS[R.link];
+  $("#results").classList.add("show");
+
+  $("#res-intro").innerHTML = R.gap>0
+    ? `Your body is moving like it's <b>${R.mobAge}</b>, not ${R.realAge}. The good news: that gap is fixable — and it starts in one specific spot.`
+    : `Your body is actually moving younger than your age. Nice. Here's how to protect it and clear the last bit of stiffness.`;
+
+  const C = 2*Math.PI*83; const fill=$("#gfill");
+  fill.setAttribute("stroke-dasharray", C);
+  const frac = Math.max(.1, Math.min(1, R.S*0.92 + (R.gap>0?.08:0)));
+  $("#mobage").textContent = R.mobAge;
+  // ring + number stay trustworthy blue/ink; the red warning lives in the
+  // "+X years" line and the weak-link bar — keeping red small & strategic.
+  fill.style.stroke = "var(--blue)";
+  $("#mobage").style.color = "var(--ink)";
+  setTimeout(()=>{ fill.style.strokeDashoffset = C - C*frac; }, 140);
+  $("#age-gap").innerHTML = R.gap>0 ? `That's <b>+${R.gap} years</b> of stiffness — every one of them reversible.` : `You're <b style="color:var(--blue)">${Math.abs(R.gap)} years ahead.</b> Let's keep it that way.`;
+  $("#age-real").textContent = `Your real age: ${R.realAge}`;
+
+  $("#scorecard").innerHTML = REGIONS.map(reg=>{
+    const p = R.pct[reg.key], isWeak = reg.key===R.link;
+    const isComp = reg.key==="lowback" && p<58 && !isWeak;
+    const tag = isWeak ? `<span class="score-tag weak">Weak link</span>` : (isComp ? `<span class="score-tag comp">Compensating</span>` : "");
+    const col = p<38?'var(--red-ink)':p<58?'var(--blue)':'var(--ink)';
+    return `<div class="score-row">
+      <div class="score-head"><div class="score-name">${reg.label}${tag}</div><div class="score-pct" style="color:${col}">${p}%</div></div>
+      <div class="score-track"><div class="score-fill ${scoreClass(p)}" data-w="${p}"></div></div>
+      <div class="score-note">${scoreNote(p)}</div>
+    </div>`;
+  }).join("");
+  setTimeout(()=>{ $$("#scorecard .score-fill").forEach(f=>f.style.width=f.dataset.w+"%"); }, 200);
+
+  $("#wl-title").innerHTML = L.titleHTML;
+  $("#wl-desc").textContent = L.desc;
+  $("#focus-steps").innerHTML = L.focus.map((f,i)=>`<div class="fstep"><div class="n">Step ${i+1}</div><h5>${f.h}</h5><p>${f.p}</p></div>`).join("");
+
+  applyOffer(R.link);                 // <-- morph the eBook to the diagnosis
+  $("#buy-personal").classList.add("show");
+  startCountdownBanner();             // ensure ticking
+  const nav=$("#nav-cta"); nav.textContent=`Get ${PRODUCT}`; nav.setAttribute("href","#offer");
+}
+
+/* ---------- dynamic offer ---------- */
+function applyOffer(key){
+  const o = OFFER[key] || OFFER.default, c = CONFIG, set=(s,v)=>{const e=$(s);if(e)e.textContent=v;}, html=(s,v)=>{const e=$(s);if(e)e.innerHTML=v;};
+  html("#offer-headline",o.headline); html("#offer-sub",o.sub);
+  set("#buy-title",PRODUCT); set("#buy-sub",BUY_SUB);
+  $("#incl").innerHTML = BULLETS.map(b=>`<li><span class="ci"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>${b.lead}</b> ${b.rest}</span><span class="v">${b.v}</span></li>`).join("");
+  if(o.personal) html("#buy-personal-text", o.personal);
+  set("#buybtn-label", `Get ${PRODUCT} — ${c.price}`);
+  set("#finalbtn-label", `Get ${PRODUCT} — ${c.price}`);
+}
+
+/* ---------- launch countdown banner ---------- */
+let bannerTimer;
+function startCountdownBanner(){
+  const cd = CONFIG.countdown;
+  const totalMs = (((cd.days*24+cd.hours)*60+cd.minutes)*60+cd.seconds)*1000;
+  // Anchor the deadline to the visitor's first load so it starts at EXACTLY the
+  // configured time, then counts down continuously (and survives a refresh).
+  let end = +localStorage.getItem("launch_deadline");
+  if(!end){ end = Date.now() + totalMs; localStorage.setItem("launch_deadline", end); }
+  const els = [$("#bannerclock"), $("#offerclock")].filter(Boolean);
+  clearInterval(bannerTimer);
+  const tick = ()=>{
+    let left = Math.max(0, end - Date.now());
+    const t = Math.floor(left/1000);
+    const d=Math.floor(t/86400), h=Math.floor(t%86400/3600), m=Math.floor(t%3600/60), s=t%60;
+    const html = `<span>${d}<b>d</b></span><span>${pad(h)}<b>h</b></span><span>${pad(m)}<b>m</b></span><span>${pad(s)}<b>s</b></span>`;
+    els.forEach(el=>el.innerHTML = html);
+    if(left<=0){ clearInterval(bannerTimer); }
+  };
+  tick(); bannerTimer=setInterval(tick,1000);
+}
+
+/* ---------- config + wiring ---------- */
+function applyConfig(){
+  const c=CONFIG, set=(s,v)=>{const e=$(s);if(e)e.textContent=v;};
+  set("#price-now",c.price); set("#price-off",c.discountPct);
+  set("#final-now",c.price); set("#final-was",c.anchor);
+  set("#promo-full",c.anchor); set("#offer-full",c.anchor); set("#lock-full",c.anchor);
+  ["#ts-guar","#bs-guar","#fm-guar"].forEach(s=>set(s,`${c.guaranteeDays}-day`));
+  set("#g-days-1",c.guaranteeDays); set("#g-days-2",c.guaranteeDays);
+  $("#buybtn").href=c.checkoutUrl; $("#finalbtn").href=c.checkoutUrl;
+  $("#year").textContent=new Date().getFullYear();
+}
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+},{threshold:.12, rootMargin:"0px 0px -6% 0px"});
+function wireFaq(){
+  $$(".faq-q").forEach(q=>q.addEventListener("click",()=>{
+    const item=q.parentElement, a=item.querySelector(".faq-a"), open=item.classList.contains("open");
+    $$(".faq-item").forEach(it=>{ it.classList.remove("open"); it.querySelector(".faq-a").style.maxHeight=null; });
+    if(!open){ item.classList.add("open"); a.style.maxHeight=a.scrollHeight+"px"; }
+  }));
+}
+window.addEventListener("scroll",()=>{ $("#site-header").classList.toggle("scrolled", window.scrollY>20); },{passive:true});
+
+/* init */
+applyConfig();
+applyOffer("default");
+renderIntro();
+wireFaq();
+startCountdownBanner();
+$$(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
