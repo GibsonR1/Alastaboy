@@ -358,6 +358,8 @@ section{position:relative;padding:78px 0}
 .buy-btn{width:100%;background:var(--coral);color:#fff;padding:19px;border-radius:12px;font-family:var(--display);font-weight:700;font-size:18px;transition:background .15s,transform .12s var(--ease),box-shadow .2s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:6px;box-shadow:var(--sh-coral)}
 .buy-btn:hover{background:var(--coral-600);transform:translateY(-2px);box-shadow:0 22px 44px -14px rgba(239,156,132,.6)}
 .buy-btn svg{width:20px;height:20px}
+@keyframes buyFlash{0%,100%{box-shadow:var(--sh-coral);transform:none}40%{box-shadow:0 0 0 12px rgba(239,156,132,.28),0 24px 52px -12px rgba(239,156,132,.8);transform:scale(1.035)}80%{box-shadow:0 0 0 6px rgba(239,156,132,.14),0 16px 40px -12px rgba(239,156,132,.5);transform:scale(1.012)}}
+.btn-flash{animation:buyFlash 1.1s ease-in-out both;pointer-events:none}
 .buy-sub{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:15px;flex-wrap:wrap}
 .buy-sub span{display:flex;align-items:center;gap:6px;color:var(--slate-2);font-size:12px;font-weight:600}
 .buy-sub svg{width:14px;height:14px;color:#27c06b}
@@ -591,13 +593,14 @@ footer{background:var(--paper);color:var(--slate);padding:46px 0 38px;border-top
 <!-- ====================== RESULTS ====================== -->
 <section id="results">
   <div class="wrap">
-    <div class="res-top">
-      <span class="res-banner"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Your results are in</span>
-      <h2 id="res-h2">Here's what your body just told us</h2>
-      <p class="res-intro" id="res-intro"></p>
+    <div class="res-focus">
+      <div class="wl-tag"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg> Your #1 weak link</div>
+      <h3 id="wl-title">Your <span>hips</span> are the weak link</h3>
+      <p id="wl-desc"></p>
+      <div class="focus-steps" id="focus-steps"></div>
     </div>
 
-    <div class="res-main">
+    <div class="res-main" style="margin-top:24px">
       <div class="panel age-panel">
         <div class="panel-title"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="2"/><path d="M12 9v4l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Your mobility age</div>
         <div class="gauge">
@@ -617,11 +620,11 @@ footer{background:var(--paper);color:var(--slate);padding:46px 0 38px;border-top
       </div>
     </div>
 
-    <div class="res-focus">
-      <div class="wl-tag"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg> Your #1 weak link</div>
-      <h3 id="wl-title">Your <span>hips</span> are the weak link</h3>
-      <p id="wl-desc"></p>
-      <div class="focus-steps" id="focus-steps"></div>
+    <div style="text-align:center;margin-top:36px">
+      <button class="btn btn-primary" id="res-fix-btn" onclick="scrollToFix()" style="display:inline-flex;padding:18px 38px;font-size:17px">
+        <span>Fix it — see the plan</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M12 5v14M5 13l7 7 7-7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -912,9 +915,6 @@ footer{background:var(--paper);color:var(--slate);padding:46px 0 38px;border-top
       <div class="foot-links">
         <a href="#test">Take the test</a>
         <a href="#offer">Get the program</a>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Contact</a>
       </div>
     </div>
     <p class="disclaimer">
@@ -933,7 +933,7 @@ const CONFIG = {
   price:        "$47",
   anchor:       "$258",
   discountPct:  "81% OFF",
-  checkoutUrl:  "#",          // <-- paste your Stripe / Gumroad / ThriveCart link
+  checkoutUrl:  "https://alastaboy.gumroad.com/l/Mobility-101",
   guaranteeDays: 60,
   founderName:  "Jake",
   // launch countdown in the top banner — starts at exactly this on a visitor's
@@ -1226,10 +1226,8 @@ function showResults(){
   const R = computeResult(); window.__R = R;
   const L = LINKS[R.link];
   $("#results").classList.add("show");
-
-  $("#res-intro").innerHTML = R.gap>0
-    ? `Your body is moving like it's <b>${R.mobAge}</b>, not ${R.realAge}. The good news: that gap is fixable — and it starts in one specific spot.`
-    : `Your body is actually moving younger than your age. Nice. Here's how to protect it and clear the last bit of stiffness.`;
+  const fixBtn = $("#res-fix-btn");
+  if(fixBtn){ fixBtn.querySelector("span").textContent = `Fix your ${L.name} — see the plan`; }
 
   const C = 2*Math.PI*83; const fill=$("#gfill");
   fill.setAttribute("stroke-dasharray", C);
@@ -1275,6 +1273,17 @@ function applyOffer(key){
   if(o.personal) html("#buy-personal-text", o.personal);
   set("#buybtn-label", `Get ${PRODUCT} — ${c.price}`);
   set("#finalbtn-label", `Get ${PRODUCT} — ${c.price}`);
+}
+
+/* ---------- scroll to offer + flash buy button ---------- */
+function scrollToFix(){
+  document.getElementById('offer').scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(()=>{
+    const btn=document.getElementById('buybtn');
+    if(!btn) return;
+    btn.classList.add('btn-flash');
+    setTimeout(()=>btn.classList.remove('btn-flash'),1200);
+  },900);
 }
 
 /* ---------- launch countdown banner ---------- */
