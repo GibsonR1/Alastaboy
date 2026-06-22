@@ -1303,7 +1303,7 @@ function startCountdownBanner(){
   // Anchor the deadline to the visitor's first load so it starts at EXACTLY the
   // configured time, then counts down continuously (and survives a refresh).
   let end = +localStorage.getItem("launch_deadline");
-  if(!end){ end = Date.now() + totalMs; localStorage.setItem("launch_deadline", end); }
+  if(!end || end <= Date.now()){ end = Date.now() + totalMs; localStorage.setItem("launch_deadline", end); }
   const els = [$("#bannerclock"), $("#offerclock")].filter(Boolean);
   clearInterval(bannerTimer);
   const tick = ()=>{
